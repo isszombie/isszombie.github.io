@@ -29,33 +29,43 @@
 <p>In <a href="/category/python.html">python</a>.</p>
 
 </footer><!-- /.post-info --><ul>
-<li>
-<p>xlrd读取文件</p>
+<li>xlrd读取文件</li>
+</ul>
 <p>xlrd是跨平台的，主要示例代码如下：</p>
-<p><code>python {.line-numbers}
-workbook_object = xlrd.open_workbook(report_path) #打开文件,获取workbook对象
-work_sheet = workbook_object.sheet_by_name("Sheet1")#基于sheet名字获取到sheet对象
-the_sheet.cell(7,3).ctype#获取单元格的类型</code>
-使用<code>work_sheet.nrows</code>获取行数，使用<code>cell_value(i,j)</code>获取某个格子的值</p>
-<p>python读取excel中单元格的内容返回的有6种类型:
-+ 0 empty
-+ 1 string
-+ 2 number
-+ 3 date
-+ 4 boolean
-+ 5 error</p>
-</li>
+<div class="highlight"><pre><span></span><span class="n">workbook_object</span> <span class="o">=</span> <span class="n">xlrd</span><span class="o">.</span><span class="n">open_workbook</span><span class="p">(</span><span class="n">report_path</span><span class="p">)</span> <span class="c1">#打开文件,获取workbook对象</span>
+<span class="n">work_sheet</span> <span class="o">=</span> <span class="n">workbook_object</span><span class="o">.</span><span class="n">sheet_by_name</span><span class="p">(</span><span class="s2">&quot;Sheet1&quot;</span><span class="p">)</span><span class="c1">#基于sheet名字获取到sheet对象</span>
+<span class="n">the_sheet</span><span class="o">.</span><span class="n">cell</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">ctype</span><span class="c1">#获取单元格的类型</span>
+</pre></div>
+
+
+<div class="highlight"><pre><span></span><span class="err">使用</span><span class="o">`</span><span class="n">work_sheet</span><span class="p">.</span><span class="n">nrows</span><span class="o">`</span><span class="err">获取行数，使用</span><span class="o">`</span><span class="n">cell_value</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">)</span><span class="o">`</span><span class="err">获取某个格子的值</span>
+
+<span class="n">python读取excel中单元格的内容返回的有6种类型</span><span class="p">:</span>
+<span class="o">+</span> <span class="mi">0</span> <span class="n">empty</span>
+<span class="o">+</span> <span class="mi">1</span> <span class="n">string</span>
+<span class="o">+</span> <span class="mi">2</span> <span class="nb">number</span>
+<span class="o">+</span> <span class="mi">3</span> <span class="nb">date</span>
+<span class="o">+</span> <span class="mi">4</span> <span class="nb">boolean</span>
+<span class="o">+</span> <span class="mi">5</span> <span class="n">error</span>
+</pre></div>
+
+
+<ul>
 <li>
 <p>xlwings的使用</p>
 <p>根据目前的研究，xlwings很可能是调用了Excel VBA API，从代码被调用时打开了Excel程序实例来看应该是这样，这也意味着它可以做到更加复杂的操作。部分示例代码如下：</p>
-<p><code>python {.line-numbers}
-the_workbook=xw.Book(template_path) #打开文件,获取workbook对象
-detail_sheet=xw.Sheet("Sheet1") #sheet名字
-detail_sheet.range(str(i+6)+':'+str(i+6)).api.Insert()#利用Excel VBA API插入新的行
-detail_sheet.range(i+6,j+1).value = the_line[j]#给某个格子填写内容，注意第1个格子A1是1,1
-detail_sheet.range('5:5').api.EntireRow.Delete()#删掉一行，此处是删除掉第5行
-the_workbook.app.quit()#用这个方法来退出Excel程序，the_workbook.close()只能关掉当前打开的文件</code></p>
 </li>
+</ul>
+<div class="highlight"><pre><span></span><span class="n">the_workbook</span><span class="o">=</span><span class="n">xw</span><span class="o">.</span><span class="n">Book</span><span class="p">(</span><span class="n">template_path</span><span class="p">)</span> <span class="c1">#打开文件,获取workbook对象</span>
+<span class="n">detail_sheet</span><span class="o">=</span><span class="n">xw</span><span class="o">.</span><span class="n">Sheet</span><span class="p">(</span><span class="s2">&quot;Sheet1&quot;</span><span class="p">)</span> <span class="c1">#sheet名字</span>
+<span class="n">detail_sheet</span><span class="o">.</span><span class="n">range</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">6</span><span class="p">)</span><span class="o">+</span><span class="s1">&#39;:&#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">6</span><span class="p">))</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">Insert</span><span class="p">()</span><span class="c1">#利用Excel VBA API插入新的行</span>
+<span class="n">detail_sheet</span><span class="o">.</span><span class="n">range</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">6</span><span class="p">,</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">the_line</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="c1">#给某个格子填写内容，注意第1个格子A1是1,1</span>
+<span class="n">detail_sheet</span><span class="o">.</span><span class="n">range</span><span class="p">(</span><span class="s1">&#39;5:5&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">EntireRow</span><span class="o">.</span><span class="n">Delete</span><span class="p">()</span><span class="c1">#删掉一行，此处是删除掉第5行</span>
+<span class="n">the_workbook</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">quit</span><span class="p">()</span><span class="c1">#用这个方法来退出Excel程序，the_workbook.close()只能关掉当前打开的文件</span>
+</pre></div>
+
+
+<ul>
 <li>
 <p>xlwt的使用</p>
 <p>在有xlwings的情况下还要用xlwt，主要的原因是：</p>
@@ -69,18 +79,24 @@ the_workbook.app.quit()#用这个方法来退出Excel程序，the_workbook.close
 </ul>
 <p>注意：xlwt目前没有办法通过模板来进行写入，所以落入了下乘</p>
 <p>主要代码示例如下：</p>
-<p><code>python {.line-numbers}
-style = xlwt.XFStyle() # 初始化样式
-font = xlwt.Font() # 为样式创建字体
-font.name = 'Times New Roman' 
-font.bold = True # 黑体
-font.underline = True # 下划线
-font.italic = True # 斜体字
-style.font = font # 设定样式
-worksheet.write(0, 0, 'Unformatted value') # 不带样式的写入
-worksheet.write(1, 0, 'Formatted value', style) # 带样式的写入
-workbook.save('formatting.xls') # 保存文件</code>
-+ 参考资料</p>
+</li>
+</ul>
+<div class="highlight"><pre><span></span><span class="n">style</span> <span class="o">=</span> <span class="n">xlwt</span><span class="o">.</span><span class="n">XFStyle</span><span class="p">()</span> <span class="c1"># 初始化样式</span>
+<span class="n">font</span> <span class="o">=</span> <span class="n">xlwt</span><span class="o">.</span><span class="n">Font</span><span class="p">()</span> <span class="c1"># 为样式创建字体</span>
+<span class="n">font</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;Times New Roman&#39;</span> 
+<span class="n">font</span><span class="o">.</span><span class="n">bold</span> <span class="o">=</span> <span class="bp">True</span> <span class="c1"># 黑体</span>
+<span class="n">font</span><span class="o">.</span><span class="n">underline</span> <span class="o">=</span> <span class="bp">True</span> <span class="c1"># 下划线</span>
+<span class="n">font</span><span class="o">.</span><span class="n">italic</span> <span class="o">=</span> <span class="bp">True</span> <span class="c1"># 斜体字</span>
+<span class="n">style</span><span class="o">.</span><span class="n">font</span> <span class="o">=</span> <span class="n">font</span> <span class="c1"># 设定样式</span>
+<span class="n">worksheet</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;Unformatted value&#39;</span><span class="p">)</span> <span class="c1"># 不带样式的写入</span>
+<span class="n">worksheet</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;Formatted value&#39;</span><span class="p">,</span> <span class="n">style</span><span class="p">)</span> <span class="c1"># 带样式的写入</span>
+<span class="n">workbook</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s1">&#39;formatting.xls&#39;</span><span class="p">)</span> <span class="c1"># 保存文件</span>
+</pre></div>
+
+
+<ul>
+<li>
+<p>参考资料</p>
 <ul>
 <li><a href="https://www.jianshu.com/p/4e39444d5ebc">python使用xlwt模块操作Excel</a></li>
 </ul>

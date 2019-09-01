@@ -218,51 +218,51 @@ AC copy constructor</p>
 </pre></div>
 
 
-<p>输出结果是：123456810,选B（上面的代码需要用C++11编译器编译）</p>
-<p>```c++ 可以用g++默认模式编译的代码</p>
-<h1>include <iostream></h1>
-<h1>include <vector></h1>
-<p>using namespace std;</p>
-<p>int main(int argc, char **argv)
-{
-    int t[]={1,2,3,4,5,6,7,8,9,10};
-    vector<int> a(t,t+sizeof(t)/sizeof(int));</p>
-<div class="highlight"><pre><span></span><span class="k">for</span><span class="ss">(</span><span class="nv">vector</span><span class="o">&lt;</span><span class="nv">int</span><span class="o">&gt;</span>::<span class="nv">iterator</span> <span class="nv">it</span><span class="o">=</span><span class="nv">a</span>.<span class="nv">begin</span><span class="ss">()</span><span class="c1">;it!=a.end();++it)</span>
-{
-    <span class="k">if</span><span class="ss">(</span><span class="o">*</span><span class="nv">it</span><span class="o">&gt;</span><span class="mi">6</span><span class="ss">)</span>
-    {
-        <span class="nv">a</span>.<span class="nv">erase</span><span class="ss">(</span><span class="nv">it</span><span class="ss">)</span><span class="c1">;</span>
-    }
-    <span class="nv">cout</span><span class="o">&lt;&lt;*</span><span class="nv">it</span><span class="c1">;</span>
-}
-<span class="nv">cout</span><span class="o">&lt;&lt;</span><span class="nv">endl</span><span class="c1">;//output:123456810</span>
-<span class="k">return</span> <span class="mi">0</span><span class="c1">;</span>
+<p>输出结果是：123456810,选B（上面的代码需要用C++11编译器编译）
+可以用g++默认模式编译的代码如下:</p>
+<div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;vector&gt;</span><span class="cp"></span>
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">**</span><span class="n">argv</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="kt">int</span> <span class="n">t</span><span class="p">[]</span><span class="o">=</span><span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">10</span><span class="p">};</span>
+    <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">a</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">t</span><span class="o">+</span><span class="k">sizeof</span><span class="p">(</span><span class="n">t</span><span class="p">)</span><span class="o">/</span><span class="k">sizeof</span><span class="p">(</span><span class="kt">int</span><span class="p">));</span>
+
+    <span class="k">for</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;::</span><span class="n">iterator</span> <span class="n">it</span><span class="o">=</span><span class="n">a</span><span class="p">.</span><span class="n">begin</span><span class="p">();</span><span class="n">it</span><span class="o">!=</span><span class="n">a</span><span class="p">.</span><span class="n">end</span><span class="p">();</span><span class="o">++</span><span class="n">it</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">if</span><span class="p">(</span><span class="o">*</span><span class="n">it</span><span class="o">&gt;</span><span class="mi">6</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="n">a</span><span class="p">.</span><span class="n">erase</span><span class="p">(</span><span class="n">it</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="n">cout</span><span class="o">&lt;&lt;*</span><span class="n">it</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span><span class="c1">//output:123456810</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
 </pre></div>
 
 
-<p>}</p>
-<div class="highlight"><pre><span></span>## 程序的输出结果是：
-
-```<span class="nv">c</span><span class="o">++</span>
-#<span class="k">include</span> <span class="o">&lt;</span><span class="nv">iostream</span><span class="o">&gt;</span>
-<span class="nv">using</span> <span class="nv">namespace</span> <span class="nv">std</span><span class="c1">;</span>
-<span class="nv">void</span> <span class="nv">f1</span><span class="ss">(</span><span class="nv">int</span> <span class="nv">k</span><span class="ss">)</span>
-{
-    <span class="nv">k</span><span class="o">++</span><span class="c1">;</span>
-}
-<span class="nv">void</span> <span class="nv">f2</span><span class="ss">(</span><span class="nv">int</span><span class="o">*</span> <span class="nv">k</span><span class="ss">)</span>
-{
-    <span class="o">*</span><span class="nv">k</span><span class="o">++</span><span class="c1">;//等价于*(k++)</span>
-}
-<span class="nv">int</span> <span class="nv">main</span><span class="ss">()</span>
-{
-    <span class="nv">int</span> <span class="nv">m</span>,<span class="nv">n</span><span class="c1">;</span>
-    <span class="nv">m</span><span class="o">=</span><span class="nv">n</span><span class="o">=</span><span class="mi">0</span><span class="c1">;</span>
-    <span class="nv">f1</span><span class="ss">(</span><span class="nv">m</span><span class="ss">)</span><span class="c1">;</span>
-    <span class="nv">f2</span><span class="ss">(</span><span class="o">&amp;</span><span class="nv">n</span><span class="ss">)</span><span class="c1">;</span>
-    <span class="nv">cout</span><span class="o">&lt;&lt;</span><span class="nv">m</span><span class="o">&lt;&lt;</span><span class="s1">&#39;</span><span class="s"> </span><span class="s1">&#39;</span><span class="o">&lt;&lt;</span><span class="nv">n</span><span class="o">&lt;&lt;</span><span class="nv">endl</span><span class="c1">;//output:0 0</span>
-    <span class="k">return</span> <span class="mi">0</span><span class="c1">;</span>
-}
+<h2>程序的输出结果是：</h2>
+<div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+<span class="kt">void</span> <span class="nf">f1</span><span class="p">(</span><span class="kt">int</span> <span class="n">k</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">k</span><span class="o">++</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="kt">void</span> <span class="nf">f2</span><span class="p">(</span><span class="kt">int</span><span class="o">*</span> <span class="n">k</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="o">*</span><span class="n">k</span><span class="o">++</span><span class="p">;</span><span class="c1">//等价于*(k++)</span>
+<span class="p">}</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="kt">int</span> <span class="n">m</span><span class="p">,</span><span class="n">n</span><span class="p">;</span>
+    <span class="n">m</span><span class="o">=</span><span class="n">n</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
+    <span class="n">f1</span><span class="p">(</span><span class="n">m</span><span class="p">);</span>
+    <span class="n">f2</span><span class="p">(</span><span class="o">&amp;</span><span class="n">n</span><span class="p">);</span>
+    <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="n">m</span><span class="o">&lt;&lt;</span><span class="sc">&#39; &#39;</span><span class="o">&lt;&lt;</span><span class="n">n</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span><span class="c1">//output:0 0</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
 </pre></div>
 
 

@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+        <meta charset="utf-8" />
+        <title>"Java-Notes"</title>
+        <link rel="stylesheet" href="/theme/css/main.css" />
+</head>
+
+<body id="index" class="home">
+        <header id="banner" class="body">
+                <h1><a href="/">my github blog </a></h1>
+                <nav><ul>
+                    <li><a href="/category/blog_admin.html">blog_admin</a></li>
+                    <li class="active"><a href="/category/misc.html">misc</a></li>
+                    <li><a href="/category/python.html">python</a></li>
+                </ul></nav>
+        </header><!-- /#banner -->
+<section id="content" class="body">
+  <article>
+    <header>
+      <h1 class="entry-title">
+        <a href="/java-notes.html" rel="bookmark"
+           title="Permalink to "Java-Notes"">"Java-Notes"</a></h1>
+    </header>
+
+    <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2013-10-25T20:30:00+02:00">
+                Published: 五 25 十月 2013
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/isszombie.html">isszombie</a>
+        </address>
+<p>In <a href="/category/misc.html">misc</a>.</p>
+
+</footer><!-- /.post-info -->      <h3>下列程序的输出结果是：</h3>
+<div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">test</span>
+<span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span> <span class="n">args</span><span class="o">[])</span>
+    <span class="o">{</span>
+        <span class="n">String</span> <span class="n">a</span><span class="o">=</span><span class="s">&quot;abc&quot;</span><span class="o">;</span>
+        <span class="n">String</span> <span class="n">b</span><span class="o">=</span><span class="s">&quot;abc&quot;</span><span class="o">;</span>
+        <span class="n">String</span> <span class="n">c</span><span class="o">=</span><span class="k">new</span> <span class="n">String</span><span class="o">(</span><span class="n">b</span><span class="o">);</span>
+
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="n">a</span><span class="o">==</span><span class="n">b</span><span class="o">);</span><span class="cm">/* a和b指向同一个对象**/</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="sc">&#39; &#39;</span><span class="o">);</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="n">a</span><span class="o">==</span><span class="n">c</span><span class="o">);</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="sc">&#39; &#39;</span><span class="o">);</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="n">c</span><span class="o">==</span><span class="n">b</span><span class="o">);</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+
+
+<p>结果是：true false false</p>
+<h3>下列程序的输出结果是：</h3>
+<div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">test</span>
+<span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="n">a</span><span class="o">,</span><span class="n">c</span><span class="o">;</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span> <span class="n">args</span><span class="o">[])</span>
+    <span class="o">{</span>
+        <span class="n">a</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span><span class="n">c</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span>
+        <span class="k">do</span>
+        <span class="o">{</span> 
+            <span class="o">--</span><span class="n">c</span><span class="o">;</span> 
+            <span class="n">a</span><span class="o">=</span><span class="n">a</span><span class="o">-</span><span class="mi">1</span><span class="o">;</span> 
+        <span class="o">}</span>
+        <span class="k">while</span><span class="o">(</span><span class="n">a</span><span class="o">&gt;</span><span class="mi">0</span><span class="o">);</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">c</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+
+
+<p>结果是：-1</p>
+<h3>下列程序的输出结果是：</h3>
+<div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">test</span>
+<span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span> <span class="n">args</span><span class="o">[])</span>
+    <span class="o">{</span>
+        <span class="n">Integer</span> <span class="n">n1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Integer</span><span class="o">(</span><span class="mi">47</span><span class="o">);</span>   
+        <span class="n">Integer</span> <span class="n">n2</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Integer</span><span class="o">(</span><span class="mi">47</span><span class="o">);</span> 
+        <span class="kt">int</span> <span class="n">r1</span><span class="o">=</span><span class="mi">47</span><span class="o">;</span>
+        <span class="kt">int</span> <span class="n">r2</span><span class="o">=</span><span class="mi">47</span><span class="o">;</span>
+
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="n">n1</span><span class="o">==</span><span class="n">n2</span><span class="o">);</span> 
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="s">&quot;,&quot;</span><span class="o">);</span> 
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="n">n1</span><span class="o">!=</span><span class="n">n2</span><span class="o">);</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="s">&quot;,&quot;</span><span class="o">);</span> 
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">r1</span><span class="o">!=</span><span class="n">r2</span><span class="o">);</span> 
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+
+
+<p>结果是：false,true,false</p>
+<h3>写一个Singleton。Singleton模式主要作用是保证在Java应用程序中，一个类Class只有一个实例存在。</h3>
+<h4>方法1</h4>
+<div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Singleton</span>
+<span class="o">{</span>
+    <span class="kd">private</span> <span class="kd">final</span> <span class="kd">static</span> <span class="n">Singleton</span> <span class="n">INSTANCE</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Singleton</span><span class="o">();</span>
+    <span class="kd">private</span> <span class="nf">Singleton</span><span class="o">(){}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">Singleton</span> <span class="nf">getInstance</span><span class="o">()</span> 
+    <span class="o">{</span>
+        <span class="k">return</span> <span class="n">INSTANCE</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+
+
+<h4>方法2</h4>
+<div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Singleton</span> 
+<span class="o">{</span>
+    <span class="kd">private</span> <span class="kd">static</span> <span class="kd">volatile</span> <span class="n">Singleton</span> <span class="n">INSTANCE</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+
+    <span class="c1">// Private constructor suppresses </span>
+    <span class="c1">// default public constructor</span>
+    <span class="kd">private</span> <span class="nf">Singleton</span><span class="o">()</span> <span class="o">{}</span>
+
+    <span class="c1">//thread safe and performance  promote </span>
+    <span class="kd">public</span> <span class="kd">static</span>  <span class="n">Singleton</span> <span class="nf">getInstance</span><span class="o">()</span> 
+    <span class="o">{</span>
+        <span class="k">if</span><span class="o">(</span><span class="n">INSTANCE</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span>
+        <span class="o">{</span>
+            <span class="kd">synchronized</span><span class="o">(</span><span class="n">Singleton</span><span class="o">.</span><span class="na">class</span><span class="o">)</span>
+            <span class="o">{</span>
+                <span class="c1">//when more than two threads run into the first null check same time, to avoid instanced more than one time, it needs to be checked again.</span>
+                <span class="k">if</span><span class="o">(</span><span class="n">INSTANCE</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span>
+                <span class="o">{</span> 
+                    <span class="n">INSTANCE</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Singleton</span><span class="o">();</span>
+                <span class="o">}</span>
+            <span class="o">}</span> 
+        <span class="o">}</span>
+        <span class="k">return</span> <span class="n">INSTANCE</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+
+
+<h3>下列程序的输出结果是：</h3>
+<div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">test</span>
+<span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">changeStr</span><span class="o">(</span><span class="n">String</span> <span class="n">str</span><span class="o">)</span>
+    <span class="o">{</span>
+        <span class="n">str</span><span class="o">=</span><span class="s">&quot;welcome&quot;</span><span class="o">;</span><span class="c1">//这里的更改没有起到作用</span>
+    <span class="o">}</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> 
+    <span class="o">{</span>
+        <span class="n">String</span> <span class="n">str</span><span class="o">=</span><span class="s">&quot;1234&quot;</span><span class="o">;</span>
+        <span class="n">changeStr</span><span class="o">(</span><span class="n">str</span><span class="o">);</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">str</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+
+
+<p>结果是：1234</p>
+<h3>下列程序的输出结果是：</h3>
+<div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">test</span>
+<span class="o">{</span>
+    <span class="kd">static</span> <span class="kt">boolean</span> <span class="nf">foo</span><span class="o">(</span><span class="kt">char</span> <span class="n">c</span><span class="o">)</span> 
+    <span class="o">{</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="n">c</span><span class="o">);</span>
+        <span class="k">return</span> <span class="kc">true</span><span class="o">;</span>
+    <span class="o">}</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">argv</span><span class="o">)</span> 
+    <span class="o">{</span>
+        <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+        <span class="k">for</span> <span class="o">(</span><span class="n">foo</span><span class="o">(</span><span class="sc">&#39;A&#39;</span><span class="o">);</span> <span class="n">foo</span><span class="o">(</span><span class="sc">&#39;B&#39;</span><span class="o">)</span> <span class="o">&amp;&amp;</span> <span class="o">(</span><span class="n">i</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="o">);</span> <span class="n">foo</span><span class="o">(</span><span class="sc">&#39;C&#39;</span><span class="o">))</span> 
+        <span class="o">{</span>
+            <span class="n">i</span><span class="o">++;</span>
+            <span class="n">foo</span><span class="o">(</span><span class="sc">&#39;D&#39;</span><span class="o">);</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+
+
+<p>结果是：ABDCBDCB</p>
+<h3>下列程序的输出结果是：(建行武汉软开面试题)</h3>
+<div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">ans</span>
+<span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span> <span class="n">args</span><span class="o">[])</span>
+    <span class="o">{</span>
+        <span class="n">String</span> <span class="n">a</span><span class="o">=</span><span class="s">&quot;abc&quot;</span><span class="o">;</span>
+        <span class="n">String</span> <span class="n">b</span><span class="o">=</span><span class="s">&quot;abcde&quot;</span><span class="o">;</span>
+        <span class="n">String</span> <span class="n">c</span><span class="o">=</span><span class="n">b</span><span class="o">.</span><span class="na">substring</span><span class="o">(</span><span class="mi">3</span><span class="o">);</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">a</span><span class="o">==</span><span class="n">c</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+
+
+<p>结果是：false</p>
+    </div><!-- /.entry-content -->
+
+  </article>
+</section>
+        <section id="extras" class="body">
+                <div class="blogroll">
+                        <h2>links</h2>
+                        <ul>
+                            <li><a href="http://getpelican.com/">Pelican</a></li>
+                            <li><a href="http://python.org/">Python.org</a></li>
+                            <li><a href="http://jinja.pocoo.org/">Jinja2</a></li>
+                            <li><a href="#">You can modify those links in your config file</a></li>
+                        </ul>
+                </div><!-- /.blogroll -->
+                <div class="social">
+                        <h2>social</h2>
+                        <ul>
+
+                            <li><a href="#">You can add links in your config file</a></li>
+                            <li><a href="http://sleefd.github.io">Slee Blog</a></li>
+                        </ul>
+                </div><!-- /.social -->
+        </section><!-- /#extras -->
+
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Proudly powered by <a href="http://getpelican.com/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>.
+                </address><!-- /#about -->
+
+                <p>The theme is by <a href="http://coding.smashingmagazine.com/2009/08/04/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
+        </footer><!-- /#contentinfo -->
+
+</body>
+</html>

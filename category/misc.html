@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+        <meta charset="utf-8" />
+        <title>my github blog - misc</title>
+        <link rel="stylesheet" href="/theme/css/main.css" />
+</head>
+
+<body id="index" class="home">
+        <header id="banner" class="body">
+                <h1><a href="/">my github blog </a></h1>
+                <nav><ul>
+                    <li><a href="/category/blog_admin.html">blog_admin</a></li>
+                    <li class="active"><a href="/category/misc.html">misc</a></li>
+                    <li><a href="/category/python.html">python</a></li>
+                </ul></nav>
+        </header><!-- /#banner -->
+
+            <aside id="featured" class="body">
+                <article>
+                    <h1 class="entry-title"><a href="/c-notes.html">"C++-Notes"</a></h1>
+<footer class="post-info">
+        <abbr class="published" title="2013-11-15T15:30:00+01:00">
+                Published: 五 15 十一月 2013
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/admin.html">admin</a>
+        </address>
+<p>In <a href="/category/misc.html">misc</a>.</p>
+
+</footer><!-- /.post-info --><h2>程序的输出结果是</h2>
+<div class="highlight"><pre><span></span><span class="cp">#include</span><span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+<span class="cp">#define DOUBLE(x) x+x</span><span class="c1">//x*2</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span><span class="kt">char</span><span class="o">**</span> <span class="n">argv</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="n">DOUBLE</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span><span class="o">*</span><span class="mi">5</span><span class="p">;</span>
+    <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="n">i</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<p>输出结果是：30</p>
+<!--more-->
+
+<h2>程序出错在什么阶段？（）</h2>
+<p>A、编译阶段出错     B、运行阶段出错     C、编译和运行都出错    D、程序运行正常</p>
+<div class="highlight"><pre><span></span><span class="cp">#include</span><span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> 
+<span class="p">{</span> 
+<span class="nl">http</span><span class="p">:</span><span class="c1">//www.sogou.com </span>
+    <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="s">&quot;welcome to sogou&quot;</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span> 
+<span class="p">}</span>
+</pre></div>
+
+
+<p>D 解析："//"在C++里是注释</p>
+<h2>程序的输出是：</h2>
+<div class="highlight"><pre><span></span><span class="cp">#include</span><span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+<span class="k">class</span> <span class="nc">A</span>  
+<span class="p">{</span>  
+    <span class="k">public</span><span class="o">:</span>  
+        <span class="kt">int</span> <span class="n">b</span><span class="p">;</span>  
+        <span class="kt">char</span> <span class="n">c</span><span class="p">;</span>  
+        <span class="k">virtual</span> <span class="kt">void</span> <span class="nf">print</span><span class="p">()</span>  
+        <span class="p">{</span>  
+            <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="s">&quot;this is father&#39;s function!&quot;</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>  
+        <span class="p">}</span>  
+<span class="p">};</span>  
+
+<span class="k">class</span> <span class="nc">B</span> <span class="o">:</span> <span class="n">A</span>  
+<span class="p">{</span>  
+    <span class="k">public</span><span class="o">:</span>  
+        <span class="k">virtual</span> <span class="kt">void</span> <span class="n">print</span><span class="p">()</span>  
+        <span class="p">{</span>  
+            <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="s">&quot;this is children&#39;s function!&quot;</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>  
+        <span class="p">}</span>  
+<span class="p">};</span>  
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>  
+<span class="p">{</span>  
+    <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="k">sizeof</span><span class="p">(</span><span class="n">A</span><span class="p">)</span><span class="o">&lt;&lt;</span><span class="s">&quot;  &quot;</span><span class="o">&lt;&lt;</span><span class="k">sizeof</span><span class="p">(</span><span class="n">A</span><span class="p">)</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>  
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>  
+<span class="p">}</span>    
+</pre></div>
+
+
+<p>输出结果是:12 12</p>
+<h2>程序的输出是：</h2>
+<div class="highlight"><pre><span></span><span class="cp">#include</span><span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+<span class="k">class</span> <span class="nc">AC</span>
+<span class="p">{</span>
+    <span class="k">public</span><span class="o">:</span>
+        <span class="n">AC</span><span class="p">()</span>
+        <span class="p">{</span>
+            <span class="n">count</span><span class="o">++</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="o">~</span><span class="n">AC</span><span class="p">()</span>
+        <span class="p">{</span>
+            <span class="n">count</span><span class="o">--</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">static</span> <span class="kt">int</span> <span class="n">count</span><span class="p">;</span>
+<span class="p">};</span>
+<span class="kt">int</span> <span class="n">AC</span><span class="o">::</span><span class="n">count</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>  
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>  
+<span class="p">{</span>  
+    <span class="p">{</span>
+        <span class="n">AC</span> <span class="n">a1</span><span class="p">;</span>
+        <span class="n">AC</span> <span class="n">a2</span><span class="p">(</span><span class="n">a1</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="n">AC</span><span class="o">::</span><span class="n">count</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span> 
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>  
+<span class="p">}</span>    
+</pre></div>
+
+
+<p>输出结果是:-1</p>
+<h2>程序的输出是:</h2>
+<div class="highlight"><pre><span></span><span class="cp">#include</span><span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+<span class="k">class</span> <span class="nc">AC</span>
+<span class="p">{</span>
+    <span class="k">public</span><span class="o">:</span>
+        <span class="n">AC</span><span class="p">()</span>
+        <span class="p">{</span>
+            <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="s">&quot; AC constructor&quot;</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="n">AC</span><span class="p">(</span><span class="k">const</span> <span class="n">AC</span><span class="o">&amp;</span> <span class="n">ac</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="s">&quot; AC copy constructor&quot;</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="n">AC</span><span class="o">&amp;</span> <span class="k">operator</span><span class="o">=</span><span class="p">(</span><span class="k">const</span> <span class="n">AC</span><span class="o">&amp;</span> <span class="n">ac</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="s">&quot;AC assignment operation&quot;</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
+            <span class="k">return</span> <span class="o">*</span><span class="k">this</span><span class="p">;</span>
+        <span class="p">}</span>
+<span class="p">};</span>
+<span class="k">class</span> <span class="nc">AC2</span>
+<span class="p">{</span>
+    <span class="k">public</span><span class="o">:</span>
+        <span class="n">AC2</span><span class="p">(</span><span class="k">const</span> <span class="n">AC</span><span class="o">&amp;</span> <span class="n">ac</span><span class="p">)</span><span class="o">:</span><span class="n">ac1</span><span class="p">(</span><span class="n">ac</span><span class="p">){}</span>
+        <span class="n">AC</span> <span class="n">ac1</span><span class="p">;</span>
+<span class="p">};</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>  
+<span class="p">{</span>  
+    <span class="n">AC</span> <span class="n">a1</span><span class="p">;</span>
+    <span class="n">AC</span> <span class="n">a2</span><span class="p">(</span><span class="n">a1</span><span class="p">);</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>  
+<span class="p">}</span>    
+</pre></div>
+
+
+<p>输出结果如下:
+AC constructor
+AC copy constructor</p>
+<h2>程序的输出结果是</h2>
+<div class="highlight"><pre><span></span><span class="cp">#include</span><span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>  
+<span class="p">{</span>  
+    <span class="kt">bool</span> <span class="n">bval</span><span class="o">=</span><span class="mi">2</span><span class="p">;</span>
+    <span class="n">bval</span><span class="o">++</span><span class="p">;</span>
+    <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="n">bval</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>  
+<span class="p">}</span>    
+</pre></div>
+
+
+<p>输出结果是：1</p>
+<h2>程序的输出结果是</h2>
+<div class="highlight"><pre><span></span><span class="cp">#include</span><span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+<span class="k">union</span> <span class="n">myun</span>
+<span class="p">{</span>
+    <span class="k">struct</span>
+    <span class="p">{</span>
+        <span class="kt">int</span> <span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">z</span><span class="p">;</span>
+    <span class="p">}</span><span class="n">u</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">k</span><span class="p">;</span>
+<span class="p">}</span> <span class="n">a</span><span class="p">;</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>  
+<span class="p">{</span>  
+    <span class="n">a</span><span class="p">.</span><span class="n">u</span><span class="p">.</span><span class="n">x</span><span class="o">=</span><span class="mi">4</span><span class="p">;</span><span class="n">a</span><span class="p">.</span><span class="n">u</span><span class="p">.</span><span class="n">x</span><span class="o">=</span><span class="mi">5</span><span class="p">;</span><span class="n">a</span><span class="p">.</span><span class="n">u</span><span class="p">.</span><span class="n">z</span><span class="o">=</span><span class="mi">6</span><span class="p">;</span>
+    <span class="n">a</span><span class="p">.</span><span class="n">k</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
+    <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="n">a</span><span class="p">.</span><span class="n">u</span><span class="p">.</span><span class="n">x</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>  
+<span class="p">}</span>
+</pre></div>
+
+
+<p>输出结果是：0</p>
+<h2>下列程序的输出结果是（）</h2>
+<p>A 123456 B 123456810 C 段错误 D 以上皆不是</p>
+<div class="highlight"><pre><span></span><span class="cp">#include</span><span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="cpf">&lt;vector&gt;</span><span class="cp"></span>
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">a</span><span class="o">=</span><span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">10</span><span class="p">};</span>
+    <span class="k">for</span><span class="p">(</span><span class="k">auto</span> <span class="n">it</span><span class="o">=</span><span class="n">a</span><span class="p">.</span><span class="n">begin</span><span class="p">();</span><span class="n">it</span><span class="o">!=</span><span class="n">a</span><span class="p">.</span><span class="n">end</span><span class="p">();</span><span class="o">++</span><span class="n">it</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">if</span><span class="p">(</span><span class="o">*</span><span class="n">it</span><span class="o">&gt;</span><span class="mi">6</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="n">a</span><span class="p">.</span><span class="n">erase</span><span class="p">(</span><span class="n">it</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="n">cout</span><span class="o">&lt;&lt;*</span><span class="n">it</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<p>输出结果是：123456810,选B（上面的代码需要用C++11编译器编译）</p>
+<p>```c++ 可以用g++默认模式编译的代码</p>
+<h1>include <iostream></h1>
+<h1>include <vector></h1>
+<p>using namespace std;</p>
+<p>int main(int argc, char **argv)
+{
+    int t[]={1,2,3,4,5,6,7,8,9,10};
+    vector<int> a(t,t+sizeof(t)/sizeof(int));</p>
+<div class="highlight"><pre><span></span><span class="k">for</span><span class="ss">(</span><span class="nv">vector</span><span class="o">&lt;</span><span class="nv">int</span><span class="o">&gt;</span>::<span class="nv">iterator</span> <span class="nv">it</span><span class="o">=</span><span class="nv">a</span>.<span class="nv">begin</span><span class="ss">()</span><span class="c1">;it!=a.end();++it)</span>
+{
+    <span class="k">if</span><span class="ss">(</span><span class="o">*</span><span class="nv">it</span><span class="o">&gt;</span><span class="mi">6</span><span class="ss">)</span>
+    {
+        <span class="nv">a</span>.<span class="nv">erase</span><span class="ss">(</span><span class="nv">it</span><span class="ss">)</span><span class="c1">;</span>
+    }
+    <span class="nv">cout</span><span class="o">&lt;&lt;*</span><span class="nv">it</span><span class="c1">;</span>
+}
+<span class="nv">cout</span><span class="o">&lt;&lt;</span><span class="nv">endl</span><span class="c1">;//output:123456810</span>
+<span class="k">return</span> <span class="mi">0</span><span class="c1">;</span>
+</pre></div>
+
+
+<p>}</p>
+<div class="highlight"><pre><span></span>## 程序的输出结果是：
+
+```<span class="nv">c</span><span class="o">++</span>
+#<span class="k">include</span> <span class="o">&lt;</span><span class="nv">iostream</span><span class="o">&gt;</span>
+<span class="nv">using</span> <span class="nv">namespace</span> <span class="nv">std</span><span class="c1">;</span>
+<span class="nv">void</span> <span class="nv">f1</span><span class="ss">(</span><span class="nv">int</span> <span class="nv">k</span><span class="ss">)</span>
+{
+    <span class="nv">k</span><span class="o">++</span><span class="c1">;</span>
+}
+<span class="nv">void</span> <span class="nv">f2</span><span class="ss">(</span><span class="nv">int</span><span class="o">*</span> <span class="nv">k</span><span class="ss">)</span>
+{
+    <span class="o">*</span><span class="nv">k</span><span class="o">++</span><span class="c1">;//等价于*(k++)</span>
+}
+<span class="nv">int</span> <span class="nv">main</span><span class="ss">()</span>
+{
+    <span class="nv">int</span> <span class="nv">m</span>,<span class="nv">n</span><span class="c1">;</span>
+    <span class="nv">m</span><span class="o">=</span><span class="nv">n</span><span class="o">=</span><span class="mi">0</span><span class="c1">;</span>
+    <span class="nv">f1</span><span class="ss">(</span><span class="nv">m</span><span class="ss">)</span><span class="c1">;</span>
+    <span class="nv">f2</span><span class="ss">(</span><span class="o">&amp;</span><span class="nv">n</span><span class="ss">)</span><span class="c1">;</span>
+    <span class="nv">cout</span><span class="o">&lt;&lt;</span><span class="nv">m</span><span class="o">&lt;&lt;</span><span class="s1">&#39;</span><span class="s"> </span><span class="s1">&#39;</span><span class="o">&lt;&lt;</span><span class="nv">n</span><span class="o">&lt;&lt;</span><span class="nv">endl</span><span class="c1">;//output:0 0</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="c1">;</span>
+}
+</pre></div>
+
+
+<p>输出结果是：0 0</p>                </article>
+            </aside><!-- /#featured -->
+                <section id="content" class="body">
+                    <h1>Other articles</h1>
+                    <hr />
+                    <ol id="posts-list" class="hfeed">
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="/java-notes.html" rel="bookmark"
+                           title="Permalink to "Java-Notes"">"Java-Notes"</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2013-10-25T20:30:00+02:00">
+                Published: 五 25 十月 2013
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/isszombie.html">isszombie</a>
+        </address>
+<p>In <a href="/category/misc.html">misc</a>.</p>
+
+</footer><!-- /.post-info -->                <h3>下列程序的输出结果是：</h3>
+<div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">test</span>
+<span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span> <span class="n">args</span><span class="o">[])</span>
+    <span class="o">{</span>
+        <span class="n">String</span> <span class="n">a</span><span class="o">=</span><span class="s">&quot;abc&quot;</span><span class="o">;</span>
+        <span class="n">String</span> <span class="n">b</span><span class="o">=</span><span class="s">&quot;abc&quot;</span><span class="o">;</span>
+        <span class="n">String</span> <span class="n">c</span><span class="o">=</span><span class="k">new</span> <span class="n">String</span><span class="o">(</span><span class="n">b</span><span class="o">);</span>
+
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="n">a</span><span class="o">==</span><span class="n">b</span><span class="o">);</span><span class="cm">/* a和b指向同一个对象**/</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="sc">&#39; &#39;</span><span class="o">);</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="n">a</span><span class="o">==</span><span class="n">c</span><span class="o">);</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="sc">&#39; &#39;</span><span class="o">);</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="n">c</span><span class="o">==</span><span class="n">b</span><span class="o">);</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+
+
+<p>结果是：true false false …</p>
+                <a class="readmore" href="/java-notes.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
+                </ol><!-- /#posts-list -->
+                </section><!-- /#content -->
+        <section id="extras" class="body">
+                <div class="blogroll">
+                        <h2>links</h2>
+                        <ul>
+                            <li><a href="http://getpelican.com/">Pelican</a></li>
+                            <li><a href="http://python.org/">Python.org</a></li>
+                            <li><a href="http://jinja.pocoo.org/">Jinja2</a></li>
+                            <li><a href="#">You can modify those links in your config file</a></li>
+                        </ul>
+                </div><!-- /.blogroll -->
+                <div class="social">
+                        <h2>social</h2>
+                        <ul>
+
+                            <li><a href="#">You can add links in your config file</a></li>
+                            <li><a href="http://sleefd.github.io">Slee Blog</a></li>
+                        </ul>
+                </div><!-- /.social -->
+        </section><!-- /#extras -->
+
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Proudly powered by <a href="http://getpelican.com/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>.
+                </address><!-- /#about -->
+
+                <p>The theme is by <a href="http://coding.smashingmagazine.com/2009/08/04/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
+        </footer><!-- /#contentinfo -->
+
+</body>
+</html>

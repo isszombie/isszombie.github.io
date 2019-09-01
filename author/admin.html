@@ -11,110 +11,14 @@
                 <h1><a href="/">my github blog </a></h1>
                 <nav><ul>
                     <li><a href="/category/blog_admin.html">blog_admin</a></li>
-                    <li><a href="/category/cbi-shi-ti.html">C++,笔试题</a></li>
-                    <li><a href="/category/javabi-shi-ti.html">java,笔试题</a></li>
-                    <li><a href="/category/python.html">python</a></li>
+                    <li><a href="/category/misc.html">misc</a></li>
+                    <li><a href="/category/xin-xi-ji-zhu.html">信息技术</a></li>
                 </ul></nav>
         </header><!-- /#banner -->
 
             <aside id="featured" class="body">
                 <article>
-                    <h1 class="entry-title"><a href="/python3zhong-excelwen-jian-de-chu-li.html">Python3中Excel文件的处理</a></h1>
-<footer class="post-info">
-        <abbr class="published" title="2019-08-31T21:35:00+02:00">
-                Published: 六 31 八月 2019
-        </abbr>
-
-        <address class="vcard author">
-                By                         <a class="url fn" href="/author/admin.html">admin</a>
-        </address>
-<p>In <a href="/category/python.html">python</a>.</p>
-
-</footer><!-- /.post-info --><ul>
-<li>xlrd读取文件</li>
-</ul>
-<p>xlrd是跨平台的，主要示例代码如下：</p>
-<div class="highlight"><pre><span></span><span class="n">workbook_object</span> <span class="o">=</span> <span class="n">xlrd</span><span class="o">.</span><span class="n">open_workbook</span><span class="p">(</span><span class="n">report_path</span><span class="p">)</span> <span class="c1">#打开文件,获取workbook对象</span>
-<span class="n">work_sheet</span> <span class="o">=</span> <span class="n">workbook_object</span><span class="o">.</span><span class="n">sheet_by_name</span><span class="p">(</span><span class="s2">&quot;Sheet1&quot;</span><span class="p">)</span><span class="c1">#基于sheet名字获取到sheet对象</span>
-<span class="n">the_sheet</span><span class="o">.</span><span class="n">cell</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">ctype</span><span class="c1">#获取单元格的类型</span>
-</pre></div>
-
-
-<p>使用<code>work_sheet.nrows</code>获取行数，使用<code>cell_value(i,j)</code>获取某个格子的值</p>
-<p>python读取excel中单元格的内容返回的有6种类型:</p>
-<blockquote>
-<ul>
-<li>0 empty</li>
-<li>1 string</li>
-<li>2 number</li>
-<li>3 date</li>
-<li>4 boolean</li>
-<li>5 error</li>
-</ul>
-</blockquote>
-<ul>
-<li>xlwings的使用</li>
-</ul>
-<p>根据目前的研究，xlwings很可能是调用了Excel VBA API实现的，代码被调用时打开了Excel程序实例，这也意味着它可以做到更加复杂的操作。部分示例代码如下：</p>
-<div class="highlight"><pre><span></span><span class="n">the_workbook</span><span class="o">=</span><span class="n">xw</span><span class="o">.</span><span class="n">Book</span><span class="p">(</span><span class="n">template_path</span><span class="p">)</span> <span class="c1">#打开文件,获取workbook对象</span>
-<span class="n">detail_sheet</span><span class="o">=</span><span class="n">xw</span><span class="o">.</span><span class="n">Sheet</span><span class="p">(</span><span class="s2">&quot;Sheet1&quot;</span><span class="p">)</span> <span class="c1">#sheet名字</span>
-<span class="n">detail_sheet</span><span class="o">.</span><span class="n">range</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">6</span><span class="p">)</span><span class="o">+</span><span class="s1">&#39;:&#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">6</span><span class="p">))</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">Insert</span><span class="p">()</span><span class="c1">#利用Excel VBA API插入新的行</span>
-<span class="n">detail_sheet</span><span class="o">.</span><span class="n">range</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">6</span><span class="p">,</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">the_line</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="c1">#给某个格子填写内容，注意第1个格子A1是1,1</span>
-<span class="n">detail_sheet</span><span class="o">.</span><span class="n">range</span><span class="p">(</span><span class="s1">&#39;5:5&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">EntireRow</span><span class="o">.</span><span class="n">Delete</span><span class="p">()</span><span class="c1">#删掉一行，此处是删除掉第5行</span>
-<span class="n">the_workbook</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">quit</span><span class="p">()</span><span class="c1">#用这个方法来退出Excel程序，the_workbook.close()只能关掉当前打开的文件</span>
-</pre></div>
-
-
-<ul>
-<li>
-<p>xlwt的使用</p>
-<p>在有xlwings的情况下还要用xlwt，主要的原因是：</p>
-<ul>
-<li>
-<p>xlwings不支持Linux（Linux下面没有 MS Office）</p>
-</li>
-<li>
-<p>xlwt更加简单</p>
-</li>
-</ul>
-<p>注意：xlwt目前没有办法通过模板来进行写入，所以落入了下乘</p>
-<p>主要代码示例如下：</p>
-</li>
-</ul>
-<div class="highlight"><pre><span></span><span class="n">style</span> <span class="o">=</span> <span class="n">xlwt</span><span class="o">.</span><span class="n">XFStyle</span><span class="p">()</span> <span class="c1"># 初始化样式</span>
-<span class="n">font</span> <span class="o">=</span> <span class="n">xlwt</span><span class="o">.</span><span class="n">Font</span><span class="p">()</span> <span class="c1"># 为样式创建字体</span>
-<span class="n">font</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;Times New Roman&#39;</span> 
-<span class="n">font</span><span class="o">.</span><span class="n">bold</span> <span class="o">=</span> <span class="bp">True</span> <span class="c1"># 黑体</span>
-<span class="n">font</span><span class="o">.</span><span class="n">underline</span> <span class="o">=</span> <span class="bp">True</span> <span class="c1"># 下划线</span>
-<span class="n">font</span><span class="o">.</span><span class="n">italic</span> <span class="o">=</span> <span class="bp">True</span> <span class="c1"># 斜体字</span>
-<span class="n">style</span><span class="o">.</span><span class="n">font</span> <span class="o">=</span> <span class="n">font</span> <span class="c1"># 设定样式</span>
-<span class="n">worksheet</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;Unformatted value&#39;</span><span class="p">)</span> <span class="c1"># 不带样式的写入</span>
-<span class="n">worksheet</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;Formatted value&#39;</span><span class="p">,</span> <span class="n">style</span><span class="p">)</span> <span class="c1"># 带样式的写入</span>
-<span class="n">workbook</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s1">&#39;formatting.xls&#39;</span><span class="p">)</span> <span class="c1"># 保存文件</span>
-</pre></div>
-
-
-<ul>
-<li>
-<p>参考资料</p>
-<ul>
-<li><a href="https://www.jianshu.com/p/4e39444d5ebc">python使用xlwt模块操作Excel</a></li>
-</ul>
-</li>
-</ul>                </article>
-            </aside><!-- /#featured -->
-                <section id="content" class="body">
-                    <h1>Other articles</h1>
-                    <hr />
-                    <ol id="posts-list" class="hfeed">
-
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="/bloghui-fu-yun-xing.html" rel="bookmark"
-                           title="Permalink to Blog恢复运行">Blog恢复运行</a></h1>
-                </header>
-
-                <div class="entry-content">
+                    <h1 class="entry-title"><a href="/bloghui-fu-yun-xing.html">Blog恢复运行</a></h1>
 <footer class="post-info">
         <abbr class="published" title="2019-08-31T21:20:00+02:00">
                 Published: 六 31 八月 2019
@@ -125,56 +29,8 @@
         </address>
 <p>In <a href="/category/blog_admin.html">blog_admin</a>.</p>
 
-</footer><!-- /.post-info -->                <p>采用pelican重建了Blog，计划开始恢复运行</p>
-                <a class="readmore" href="/bloghui-fu-yun-xing.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
-
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="/c-notes.html" rel="bookmark"
-                           title="Permalink to "C++-Notes"">"C++-Notes"</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2013-11-15T15:30:00+01:00">
-                Published: 五 15 十一月 2013
-        </abbr>
-
-        <address class="vcard author">
-                By                         <a class="url fn" href="/author/admin.html">admin</a>
-        </address>
-<p>In <a href="/category/cbi-shi-ti.html">C++,笔试题</a>.</p>
-
-</footer><!-- /.post-info -->                <h2>程序的输出结果是</h2>
-<div class="highlight"><pre><span></span><span class="cp">#include</span><span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
-<span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
-<span class="cp">#define DOUBLE(x) x+x</span><span class="c1">//x*2</span>
-<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span><span class="kt">char</span><span class="o">**</span> <span class="n">argv</span><span class="p">)</span>
-<span class="p">{</span>
-    <span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="n">DOUBLE</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span><span class="o">*</span><span class="mi">5</span><span class="p">;</span>
-    <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="n">i</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
-    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span>
-</pre></div>
-
-
-<p>输出结果是：30</p>
-<!--more-->
-
-<h2>程序出错在什么阶段？（）</h2>
-<p>A、编译阶段出错     B、运行阶段出错     C、编译和运行都出错    D、程序运行正常</p>
-<div class="highlight"><pre><span></span><span class="cp">#include</span><span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
-<span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> 
-<span class="p">{</span> 
-<span class="nl">http</span><span class="p">:</span><span class="c1">//www.sogou …</span></pre></div>
-                <a class="readmore" href="/c-notes.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
-                </ol><!-- /#posts-list -->
-                </section><!-- /#content -->
+</footer><!-- /.post-info --><p>采用pelican重建了Blog，计划开始恢复运行</p>                </article>
+            </aside><!-- /#featured -->
         <section id="extras" class="body">
                 <div class="blogroll">
                         <h2>links</h2>

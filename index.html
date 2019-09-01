@@ -18,7 +18,130 @@
 
             <aside id="featured" class="body">
                 <article>
-                    <h1 class="entry-title"><a href="/python3zhong-excelwen-jian-de-chu-li.html">Python3中Excel文件的处理</a></h1>
+                    <h1 class="entry-title"><a href="/pelicande-shi-yong.html">pelican的使用</a></h1>
+<footer class="post-info">
+        <abbr class="published" title="2019-09-01T17:49:00+02:00">
+                Published: 日 01 九月 2019
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/isszombie.html">isszombie</a>
+        </address>
+<p>In <a href="/category/blog_admin.html">blog_admin</a>.</p>
+<p>tags: <a href="/tag/python.html">Python</a> </p>
+</footer><!-- /.post-info --><h3>pelican 的使用</h3>
+<h4>安装pelican</h4>
+<div class="highlight"><pre><span></span>sudo pip3 install -i https://pypi.tuna.tsinghua.edu.cn/simple markdown
+sudo pip3 install -i https://pypi.tuna.tsinghua.edu.cn/simple virtualenv
+</pre></div>
+
+
+<p>此时在Cent OS提示bash: virtualenv: 未找到命令... ，解决如下：</p>
+<div class="highlight"><pre><span></span>sudo ln -s /usr/local/bin/python3/bin/virtualenv /usr/bin/virtualenv
+</pre></div>
+
+
+<p>采用virtualenv配置命令如下:</p>
+<div class="highlight"><pre><span></span>virtualenv --no-setuptools --no-pip --no-wheel --no-site-packages env01
+</pre></div>
+
+
+<p>可以用<code>source</code>进入该环境安装pelican：</p>
+<div class="highlight"><pre><span></span><span class="nb">source</span> env01/bin/activate
+pip3 install -i https://pypi.tuna.tsinghua.edu.cn/simple markdown pelican --user
+</pre></div>
+
+
+<p>可以用<code>deactivate</code>命令退出这个虚拟环境</p>
+<h4>pelican的配置</h4>
+<div class="highlight"><pre><span></span>mkdir 博客所在的目录
+<span class="nb">cd</span> 博客所在的目录
+pelican-quickstart
+</pre></div>
+
+
+<p>看到<code>Do you want to specify URL prefix?</code>填写Y，然后填写<code>https://username.github.io</code></p>
+<p><code>Do you want to upload using xxx?</code> Answer N untill <code>the xxx = GitHub Pages</code></p>
+<p>在博客所在的目录建立.gitignore文件，内容如下:</p>
+<div class="highlight"><pre><span></span><span class="o">*~</span><span class="w"></span>
+<span class="p">.</span><span class="n">_</span><span class="o">*</span><span class="w"></span>
+<span class="o">*</span><span class="p">.</span><span class="n">lock</span><span class="w"></span>
+<span class="o">*</span><span class="p">.</span><span class="n">DS_Store</span><span class="w"></span>
+<span class="o">*</span><span class="p">.</span><span class="n">swp</span><span class="w"></span>
+<span class="o">*</span><span class="p">.</span><span class="k">out</span><span class="w"></span>
+<span class="o">*</span><span class="p">.</span><span class="n">py</span><span class="o">[</span><span class="n">cod</span><span class="o">]</span><span class="w"></span>
+<span class="k">output</span><span class="w"></span>
+</pre></div>
+
+
+<ul>
+<li>在博客所在的根目录执行生成生成静态文件命令:</li>
+</ul>
+<div class="highlight"><pre><span></span>pelican content
+</pre></div>
+
+
+<ul>
+<li>发布到github.com:</li>
+</ul>
+<p>You can configure GitHub Pages to publish your site's source files from master, gh-pages, or a /docs folder on your master branch for Project Pages and other Pages sites that meet certain criteria.</p>
+<div class="highlight"><pre><span></span><span class="nb">cd</span> output/
+git init
+git add .
+git remote add origin https://github.com/github用户具体名称/github用户具体名称.github.io.git
+git pull origin master
+git commit -m <span class="s1">&#39;first blog&#39;</span>
+git push origin master
+</pre></div>
+
+
+<p>在pelican当中，以下标记作为关键字</p>
+<blockquote>
+<ul>
+<li>Title</li>
+<li>Tags</li>
+<li>Date</li>
+<li>Modified</li>
+<li>Status</li>
+<li>Category</li>
+<li>Author</li>
+<li>Authors</li>
+<li>Slug</li>
+<li>Summary</li>
+<li>Template</li>
+<li>Save_as</li>
+<li>Url</li>
+</ul>
+</blockquote>
+<p>使用已完成html作为文章发布的方法如下：</p>
+<div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>My super title<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;tags&quot;</span> <span class="na">content</span><span class="o">=</span><span class="s">&quot;thats, awesome&quot;</span> <span class="p">/&gt;</span>
+        <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;date&quot;</span> <span class="na">content</span><span class="o">=</span><span class="s">&quot;2012-07-09 22:28&quot;</span> <span class="p">/&gt;</span>
+        <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;modified&quot;</span> <span class="na">content</span><span class="o">=</span><span class="s">&quot;2012-07-10 20:14&quot;</span> <span class="p">/&gt;</span>
+        <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;category&quot;</span> <span class="na">content</span><span class="o">=</span><span class="s">&quot;yeah&quot;</span> <span class="p">/&gt;</span>
+        <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;authors&quot;</span> <span class="na">content</span><span class="o">=</span><span class="s">&quot;Alexis Métaireau, Conan Doyle&quot;</span> <span class="p">/&gt;</span>
+        <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;summary&quot;</span> <span class="na">content</span><span class="o">=</span><span class="s">&quot;Short version for index and feeds&quot;</span> <span class="p">/&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+        This is the content of my super blog post.
+    <span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</pre></div>                </article>
+            </aside><!-- /#featured -->
+                <section id="content" class="body">
+                    <h1>Other articles</h1>
+                    <hr />
+                    <ol id="posts-list" class="hfeed">
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="/python3zhong-excelwen-jian-de-chu-li.html" rel="bookmark"
+                           title="Permalink to Python3中Excel文件的处理">Python3中Excel文件的处理</a></h1>
+                </header>
+
+                <div class="entry-content">
 <footer class="post-info">
         <abbr class="published" title="2019-08-31T21:35:00+02:00">
                 Published: 六 31 八月 2019
@@ -29,7 +152,7 @@
         </address>
 <p>In <a href="/category/xin-xi-ji-zhu.html">信息技术</a>.</p>
 <p>tags: <a href="/tag/python.html">Python</a> </p>
-</footer><!-- /.post-info --><ul>
+</footer><!-- /.post-info -->                <ul>
 <li>xlrd读取文件</li>
 </ul>
 <p>xlrd是跨平台的，主要示例代码如下：</p>
@@ -54,58 +177,10 @@
 <ul>
 <li>xlwings的使用</li>
 </ul>
-<p>根据目前的研究，xlwings很可能是调用了Excel VBA API实现的，代码被调用时打开了Excel程序实例，这也意味着它可以做到更加复杂的操作。部分示例代码如下：</p>
-<div class="highlight"><pre><span></span><span class="n">the_workbook</span><span class="o">=</span><span class="n">xw</span><span class="o">.</span><span class="n">Book</span><span class="p">(</span><span class="n">template_path</span><span class="p">)</span> <span class="c1">#打开文件,获取workbook对象</span>
-<span class="n">detail_sheet</span><span class="o">=</span><span class="n">xw</span><span class="o">.</span><span class="n">Sheet</span><span class="p">(</span><span class="s2">&quot;Sheet1&quot;</span><span class="p">)</span> <span class="c1">#sheet名字</span>
-<span class="n">detail_sheet</span><span class="o">.</span><span class="n">range</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">6</span><span class="p">)</span><span class="o">+</span><span class="s1">&#39;:&#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">6</span><span class="p">))</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">Insert</span><span class="p">()</span><span class="c1">#利用Excel VBA API插入新的行</span>
-<span class="n">detail_sheet</span><span class="o">.</span><span class="n">range</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">6</span><span class="p">,</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">the_line</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="c1">#给某个格子填写内容，注意第1个格子A1是1,1</span>
-<span class="n">detail_sheet</span><span class="o">.</span><span class="n">range</span><span class="p">(</span><span class="s1">&#39;5:5&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">EntireRow</span><span class="o">.</span><span class="n">Delete</span><span class="p">()</span><span class="c1">#删掉一行，此处是删除掉第5行</span>
-<span class="n">the_workbook</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">quit</span><span class="p">()</span><span class="c1">#用这个方法来退出Excel程序，the_workbook.close()只能关掉当前打开的文件</span>
-</pre></div>
-
-
-<ul>
-<li>
-<p>xlwt的使用</p>
-<p>在有xlwings的情况下还要用xlwt，主要的原因是：</p>
-<ul>
-<li>
-<p>xlwings不支持Linux（Linux下面没有 MS Office）</p>
-</li>
-<li>
-<p>xlwt更加简单</p>
-</li>
-</ul>
-<p>注意：xlwt目前没有办法通过模板来进行写入，所以落入了下乘</p>
-<p>主要代码示例如下：</p>
-</li>
-</ul>
-<div class="highlight"><pre><span></span><span class="n">style</span> <span class="o">=</span> <span class="n">xlwt</span><span class="o">.</span><span class="n">XFStyle</span><span class="p">()</span> <span class="c1"># 初始化样式</span>
-<span class="n">font</span> <span class="o">=</span> <span class="n">xlwt</span><span class="o">.</span><span class="n">Font</span><span class="p">()</span> <span class="c1"># 为样式创建字体</span>
-<span class="n">font</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;Times New Roman&#39;</span> 
-<span class="n">font</span><span class="o">.</span><span class="n">bold</span> <span class="o">=</span> <span class="bp">True</span> <span class="c1"># 黑体</span>
-<span class="n">font</span><span class="o">.</span><span class="n">underline</span> <span class="o">=</span> <span class="bp">True</span> <span class="c1"># 下划线</span>
-<span class="n">font</span><span class="o">.</span><span class="n">italic</span> <span class="o">=</span> <span class="bp">True</span> <span class="c1"># 斜体字</span>
-<span class="n">style</span><span class="o">.</span><span class="n">font</span> <span class="o">=</span> <span class="n">font</span> <span class="c1"># 设定样式</span>
-<span class="n">worksheet</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;Unformatted value&#39;</span><span class="p">)</span> <span class="c1"># 不带样式的写入</span>
-<span class="n">worksheet</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;Formatted value&#39;</span><span class="p">,</span> <span class="n">style</span><span class="p">)</span> <span class="c1"># 带样式的写入</span>
-<span class="n">workbook</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s1">&#39;formatting.xls&#39;</span><span class="p">)</span> <span class="c1"># 保存文件</span>
-</pre></div>
-
-
-<ul>
-<li>
-<p>参考资料</p>
-<ul>
-<li><a href="https://www.jianshu.com/p/4e39444d5ebc">python使用xlwt模块操作Excel</a></li>
-</ul>
-</li>
-</ul>                </article>
-            </aside><!-- /#featured -->
-                <section id="content" class="body">
-                    <h1>Other articles</h1>
-                    <hr />
-                    <ol id="posts-list" class="hfeed">
+<p>根据目前的研究，xlwings很可能是调用了Excel VBA API实现的，代码被调用时打开了Excel程序实例，这也意味着它可以做到更加复杂的操作。部分示例代码如下 …</p>
+                <a class="readmore" href="/python3zhong-excelwen-jian-de-chu-li.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
 
             <li><article class="hentry">
                 <header>

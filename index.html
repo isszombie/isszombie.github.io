@@ -38,24 +38,22 @@
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="err">使用</span><span class="o">`</span><span class="n">work_sheet</span><span class="p">.</span><span class="n">nrows</span><span class="o">`</span><span class="err">获取行数，使用</span><span class="o">`</span><span class="n">cell_value</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">)</span><span class="o">`</span><span class="err">获取某个格子的值</span>
-
-<span class="n">python读取excel中单元格的内容返回的有6种类型</span><span class="p">:</span>
-<span class="o">+</span> <span class="mi">0</span> <span class="n">empty</span>
-<span class="o">+</span> <span class="mi">1</span> <span class="n">string</span>
-<span class="o">+</span> <span class="mi">2</span> <span class="nb">number</span>
-<span class="o">+</span> <span class="mi">3</span> <span class="nb">date</span>
-<span class="o">+</span> <span class="mi">4</span> <span class="nb">boolean</span>
-<span class="o">+</span> <span class="mi">5</span> <span class="n">error</span>
-</pre></div>
-
-
+<p>使用<code>work_sheet.nrows</code>获取行数，使用<code>cell_value(i,j)</code>获取某个格子的值</p>
+<p>python读取excel中单元格的内容返回的有6种类型:</p>
+<blockquote>
 <ul>
-<li>
-<p>xlwings的使用</p>
-<p>根据目前的研究，xlwings很可能是调用了Excel VBA API，从代码被调用时打开了Excel程序实例来看应该是这样，这也意味着它可以做到更加复杂的操作。部分示例代码如下：</p>
-</li>
+<li>0 empty</li>
+<li>1 string</li>
+<li>2 number</li>
+<li>3 date</li>
+<li>4 boolean</li>
+<li>5 error</li>
 </ul>
+</blockquote>
+<ul>
+<li>xlwings的使用</li>
+</ul>
+<p>根据目前的研究，xlwings很可能是调用了Excel VBA API实现的，代码被调用时打开了Excel程序实例，这也意味着它可以做到更加复杂的操作。部分示例代码如下：</p>
 <div class="highlight"><pre><span></span><span class="n">the_workbook</span><span class="o">=</span><span class="n">xw</span><span class="o">.</span><span class="n">Book</span><span class="p">(</span><span class="n">template_path</span><span class="p">)</span> <span class="c1">#打开文件,获取workbook对象</span>
 <span class="n">detail_sheet</span><span class="o">=</span><span class="n">xw</span><span class="o">.</span><span class="n">Sheet</span><span class="p">(</span><span class="s2">&quot;Sheet1&quot;</span><span class="p">)</span> <span class="c1">#sheet名字</span>
 <span class="n">detail_sheet</span><span class="o">.</span><span class="n">range</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">6</span><span class="p">)</span><span class="o">+</span><span class="s1">&#39;:&#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">6</span><span class="p">))</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">Insert</span><span class="p">()</span><span class="c1">#利用Excel VBA API插入新的行</span>
